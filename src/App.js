@@ -4,6 +4,18 @@ import { DefaultLayout } from '~/components/Layout';
 import { Fragment } from 'react';
 
 function App() {
+    const setLayout = (layout) => {
+        const Layout = DefaultLayout;
+
+        if (layout) {
+            return layout;
+        } else if (layout === null) {
+            return Fragment;
+        }
+
+        return Layout;
+    };
+
     return (
         <Router>
             <div className="App">
@@ -28,18 +40,6 @@ function App() {
             </div>
         </Router>
     );
-}
-
-function setLayout(layout) {
-    const Layout = DefaultLayout;
-
-    if (layout) {
-        return layout;
-    } else if (layout === null) {
-        return Fragment;
-    }
-
-    return Layout;
 }
 
 export default App;
